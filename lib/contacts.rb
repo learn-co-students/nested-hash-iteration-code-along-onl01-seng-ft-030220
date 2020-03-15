@@ -9,16 +9,21 @@ require 'pry'
   #     favorite_ice_cream_flavors: ["chocolate", "vanilla"]
   #   },
   #   binding.pry
-  #   "Freddy Mercury" => {
-  #     name: "Freddy",
-  # binding.pry
+    # "Freddy Mercury" => {
+    #   name: "Freddy",
   #     email: "freddy@mercury.com",
   #     favorite_ice_cream_flavors: ["strawberry", "cookie dough", "mint chip"]
   #   }
   # }
   
 def remove_strawberry(contacts)
-  contacts.map do |key, value|
-    key.map do |key, fruit|
-      "@{fruit
+  contacts.each do |person, contact_details_hash|
+    if person == "Freddy Mercury"
+      contact_details_hash.each do |attribute, data|
+        if attribute == :favorite_ice_cream_flavors
+          data.delete_if {|ice_cream| ice_cream == "strawberry"}
+        end
+      end
+    end
+  end
 end
